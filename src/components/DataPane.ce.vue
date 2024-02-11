@@ -31,9 +31,9 @@
 <script>
 import { onMounted, onUnmounted, ref } from "vue";
 import dayjs from "dayjs";
-import SimpleWeatherPane from "./SimpleWeatherPane.ce.vue";
-import DetailWeatherPane from "./DetailWeatherPane.ce.vue";
-import Loader from "./Loader.ce.vue";
+import SimpleWeatherPane from "./subcomponents/SimpleWeatherPane.ce.vue";
+import DetailWeatherPane from "./subcomponents/DetailWeatherPane.ce.vue";
+import Loader from "./subcomponents/Loader.ce.vue";
 import sunImage from "../../assets/images/sun.png";
 import nightImage from "../../assets/images/night.png";
 import cloudImage from "../../assets/images/cloud_day.png";

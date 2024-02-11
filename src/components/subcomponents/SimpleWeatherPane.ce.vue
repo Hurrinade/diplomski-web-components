@@ -3,14 +3,14 @@
     <div class="infoBox">
       <div class="metric-text">Current Temperature (°C)</div>
       <div class="icon-text-container">
-        <img src="../../assets/images/temp.png" class="metric-icon" alt="" />
+        <img src="../../../assets/images/temp.png" class="metric-icon" alt="" />
         <span class="metric-number"> {{ data.Temperature }} </span>
       </div>
     </div>
     <div class="infoBox">
       <div class="metric-text">Wind & Gust (m/s)</div>
       <div class="icon-text-container">
-        <img src="../../assets/images/wind.png" class="metric-icon" alt="" />
+        <img src="../../../assets/images/wind.png" class="metric-icon" alt="" />
         <span class="metric-number">
           {{ data.WindSpeed + "/" + data.WindGust }}
         </span>
@@ -23,7 +23,11 @@
     <div class="infoBox">
       <div class="metric-text">Precipation today (mm)</div>
       <div class="icon-text-container">
-        <img src="../../assets/images/precip.png" class="metric-icon" alt="" />
+        <img
+          src="../../../assets/images/precip.png"
+          class="metric-icon"
+          alt=""
+        />
         <span class="metric-number"> {{ data.PrecipationTotal }} </span>
       </div>
     </div>
@@ -31,7 +35,7 @@
       <div class="metric-text">Humidity (%)</div>
       <div class="icon-text-container">
         <img
-          src="../../assets/images/humidity.png"
+          src="../../../assets/images/humidity.png"
           class="metric-icon"
           alt=""
         />
