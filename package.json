@@ -1,5 +1,5 @@
 {
-  "name": "diplomski-web-components",
+  "name": "web-components",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -12,6 +12,9 @@
     "dayjs": "^1.11.10",
     "sunrise-sunset-js": "^2.2.1",
     "vue": "^3.4.15"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.3",

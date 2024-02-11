@@ -20,7 +20,7 @@ export default defineConfig({
       // Use for lib building
       entry: "./src/init.js",
       formats: ["es", "cjs"],
-      name: "web-component",
+      name: "web-components",
       fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
     },
     sourcemap: true, // create source map, map compailed code to original
