@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     lib: {
       // Use for lib building
-      entry: "./src/main.js",
+      entry: "./src/init.js",
       formats: ["es", "cjs"],
       name: "web-component",
       fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
