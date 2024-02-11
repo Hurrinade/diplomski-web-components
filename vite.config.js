@@ -13,6 +13,9 @@ export default defineConfig({
     },
   },
   build: {
+    rollupOptions: {
+      external: ["vue"],
+    },
     lib: {
       // Use for lib building
       entry: "./src/init.js",

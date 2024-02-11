@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="infoBox">
-      <div class="metric-text">Humidity</div>
+      <div class="metric-text">Humidity (%)</div>
       <div class="icon-text-container">
         <img
           src="../../assets/images/humidity.png"

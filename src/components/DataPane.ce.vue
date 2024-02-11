@@ -1,32 +1,48 @@
 <template>
-  <div class="data-container">
-    <nav class="data-navigation">
-      <div class="place-time">
-        <span class="place-name">{{ location }}</span>
-        <img class="weather-type-icon" src="#" alt="type of weather" />
-        <div>{{ "No date for now" }}</div>
-      </div>
-      <div class="buttons">
-        <button @click="changeTab('weather')">Weather</button>
-        <button @click="changeTab('details')">Details</button>
-      </div>
-    </nav>
-    <main v-if="data">
-      <SimpleWeatherPane v-if="tab === 'weather'" :data="data" />
-      <div class="complex-data-container"></div>
-    </main>
-    <div v-else-if="loading">Loading</div>
-    <div v-else>No data</div>
+  <div class="main-conatiner">
+    <template v-if="loading">
+      <div class="backdrop"></div>
+      <Loader></Loader>
+    </template>
+    <div class="data-container" v-if="!loading">
+      <nav class="data-navigation">
+        <div class="place-time">
+          <div class="place-weather">
+            <div class="place-name">{{ location }}</div>
+            <img class="weather-type-icon" :src="icon" alt="type of weather" />
+          </div>
+          <div class="place-date">{{ "Date of messure: " + date }}</div>
+        </div>
+        <div class="buttons">
+          <button @click="changeTab('weather')">Weather</button>
+          <button @click="changeTab('details')">Details</button>
+        </div>
+      </nav>
+      <main v-if="data">
+        <SimpleWeatherPane v-if="tab === 'weather'" :data="data" />
+        <div class="complex-data-container"></div>
+      </main>
+      <div v-else>No data</div>
+    </div>
   </div>
 </template>
 
 <script>
 import { onMounted, onUnmounted, ref } from "vue";
+import dayjs from "dayjs";
 import SimpleWeatherPane from "./SimpleWeatherPane.ce.vue";
+import Loader from "./Loader.ce.vue";
+import sunImage from "../../assets/images/sun.png";
+import nightImage from "../../assets/images/night.png";
+import cloudImage from "../../assets/images/cloud_day.png";
+import rainImage from "../../assets/images/rain_day.png";
+import rainNightImage from "../../assets/images/rain_night.png";
+import { getSunset } from "sunrise-sunset-js";
 
 export default {
   components: {
     SimpleWeatherPane,
+    Loader,
   },
   props: {
     location: {
@@ -43,6 +59,8 @@ export default {
     const data = ref(null);
     const tab = ref("weather");
     const loading = ref(true);
+    const date = ref("");
+    const icon = ref(sunImage);
     let eventSource;
 
     /* Functions */
@@ -51,18 +69,18 @@ export default {
         return;
       }
 
-      if (location === "vrapce") {
+      if (location === "Vrapce") {
         eventSource = new EventSource(
           "http://localhost:8080/v1/getVrapceEvents"
         );
-      } else if (location === "mlinovi") {
+      } else if (location === "Mlinovi") {
         eventSource = new EventSource(
           "http://localhost:8080/v1/getMlinoviEvents"
         );
       }
 
       eventSource.addEventListener("open", (data) => {
-        console.info("Event source opened for location:", location, data);
+        console.debug("Event source opened for location:", location);
         loading.value = false;
       });
 
@@ -76,10 +94,11 @@ export default {
         }
 
         data.value = eventData.data;
+        date.value = dayjs().format("HH:mm - DD.MM.YYYY.");
+        setIcon();
       });
 
       eventSource.addEventListener("error", (err) => {
-        console.error(err);
         eventSource.close();
       });
     };
@@ -90,6 +109,35 @@ export default {
 
     const changeTab = (newTab) => {
       tab.value = newTab;
+    };
+
+    const setIcon = () => {
+      icon.value = sunImage;
+      var zagrebLong = 45.815;
+      var zagrebLang = 15.9819;
+      var currentDate = new Date();
+      var currentHour = currentDate.getHours();
+      var currneMinutes = currentDate.getMinutes();
+      const sunset = getSunset(zagrebLong, zagrebLang);
+      var sunsetHour = sunset.getHours();
+      var sunsetMinutes = sunset.getMinutes();
+
+      if (
+        currentHour > sunsetHour ||
+        (currentHour === sunsetHour && currneMinutes > sunsetMinutes)
+      ) {
+        if (data.value.PrecipationRate > 0) {
+          icon.value = rainNightImage;
+        } else {
+          icon.value = nightImage;
+        }
+      } else if (data.value.SolarRadiation <= 150 && data.value.UV === 0) {
+        if (data.value.PrecipationRate > 0) {
+          icon.value = rainImage;
+        } else {
+          icon.value = cloudImage;
+        }
+      }
     };
 
     onUnmounted(() => {
@@ -103,9 +151,17 @@ export default {
     return {
       tab,
       data,
+      date,
+      icon,
       loading,
       changeTab,
     };
   },
 };
 </script>
+
+<style>
+@import "../../assets/css/dataPane.css";
+@import "../../assets/css/loading.css";
+@import "../../assets/css/simplePane.css";
+</style>

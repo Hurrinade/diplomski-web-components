@@ -1,58 +1,92 @@
 /* CSS of place name icon and it's date */
+.main-conatiner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 55rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  backdrop-filter: blur(2rem);
+  /* background: #141416; */
+  background: #1b1c1e;
+}
+
 .data-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-radius: 1rem;
-  backdrop-filter: blur(2rem);
   padding: 1rem;
   width: 25rem;
   height: 55rem;
-  background: #2b2e35;
+}
+
+.data-navigation {
+  height: 15rem;
+}
+
+main {
+  height: 45rem;
 }
 
 .data-navigation .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px black solid;
 }
 
 .data-navigation .buttons button {
   border: none;
-  background-color: #2b2e35;
-  color: white;
+  background-color: #1b1c1e;
+  color: #889ce7;
   width: 6rem;
   height: 2rem;
   font-size: 16px;
-  font-family: Helvetica;
+  margin: 0.5rem;
+  font-family: poppins;
 }
 
 .data-navigation .buttons button:hover {
-  color: #f24646;
+  color: #fd6262;
 }
 
 .data-navigation .buttons button:focus {
-  color: #f24646;
+  color: #fd6262;
 }
 
 .place-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding-bottom: 1rem;
-  color: rgb(173, 173, 173);
+  color: #a7b5e9;
 }
 
 .place-name {
   font-size: 2.1em;
   font-weight: 600;
   margin-right: 1rem;
-  color: rgb(218, 218, 218);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 70px;
+  color: #889ce7;
+}
+
+.place-weather {
+  display: flex;
+}
+
+.place-date {
+  margin-top: 1rem;
 }
 
 .weather-type-icon {
   width: 60px;
   height: 70px;
-  padding-bottom: 1rem;
 
   /*Outline around png weather icons*/
   -webkit-filter: drop-shadow(0.1px 0.1px 0 black)

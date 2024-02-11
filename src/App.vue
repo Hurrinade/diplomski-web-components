@@ -1,9 +1,12 @@
 <template>
-  <div>
-    <DataPane :location="'vrapce'"></DataPane>
+  <div class="main">
+    <data-pane :location.prop="'Vrapce'"></data-pane>
+    <data-pane :location="'Mlinovi'"></data-pane>
   </div>
 </template>
 
-<script setup>
-import DataPane from "./components/DataPane.ce.vue";
-</script>
+<style>
+.main {
+  display: flex;
+}
+</style>

@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dayjs": "^1.11.10",
+    "sunrise-sunset-js": "^2.2.1",
     "vue": "^3.4.15"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 /*CSS of boxes with data*/
 
 .weatherData {
-  padding: 2rem;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 0fr;
   grid-gap: 1rem;
@@ -12,7 +12,7 @@
   border: 2px solid #202328;
   width: 20rem;
   height: 6rem;
-  background: #202328;
+  background: #252729;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
   text-align: center;
   font-weight: 600;
   font-size: 1em;
-  color: rgb(173, 173, 173);
+  color: #a0a0a0;
 }
 
 .metric-text > div {

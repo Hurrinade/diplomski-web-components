@@ -3,6 +3,4 @@ import DataPane from "./components/DataPane.ce.vue";
 
 const DataPaneWebComponent = defineCustomElement(DataPane);
 
-return {
-  DataPaneWebComponent,
-};
+export { DataPaneWebComponent };
