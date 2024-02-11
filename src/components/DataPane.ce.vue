@@ -20,6 +20,7 @@
       </nav>
       <main v-if="data">
         <SimpleWeatherPane v-if="tab === 'weather'" :data="data" />
+        <DetailWeatherPane v-if="tab === 'details'" :data="data" />
         <div class="complex-data-container"></div>
       </main>
       <div v-else>No data</div>
@@ -31,6 +32,7 @@
 import { onMounted, onUnmounted, ref } from "vue";
 import dayjs from "dayjs";
 import SimpleWeatherPane from "./SimpleWeatherPane.ce.vue";
+import DetailWeatherPane from "./DetailWeatherPane.ce.vue";
 import Loader from "./Loader.ce.vue";
 import sunImage from "../../assets/images/sun.png";
 import nightImage from "../../assets/images/night.png";
@@ -42,6 +44,7 @@ import { getSunset } from "sunrise-sunset-js";
 export default {
   components: {
     SimpleWeatherPane,
+    DetailWeatherPane,
     Loader,
   },
   props: {
@@ -95,6 +98,7 @@ export default {
 
         data.value = eventData.data;
         date.value = dayjs().format("HH:mm - DD.MM.YYYY.");
+        data.value.Elevation = location === "Vrapce" ? 40 : 242;
         setIcon();
       });
 
@@ -162,6 +166,7 @@ export default {
 
 <style>
 @import "../../assets/css/dataPane.css";
+@import "../../assets/css/detailPane.css";
 @import "../../assets/css/loading.css";
 @import "../../assets/css/simplePane.css";
 </style>

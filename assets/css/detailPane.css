@@ -1,0 +1,86 @@
+/*Detailed data components*/
+.weatherDetailedData {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailedInfoBox {
+  height: 40rem;
+  width: 24rem;
+  background: #2a2b2e;
+  border-radius: 0.5rem;
+}
+
+.section-name {
+  background-color: #202328;
+  padding: 15px;
+  font-weight: 600;
+  font-family: poppins;
+  font-size: 1.3em;
+  color: rgb(216, 216, 216);
+}
+
+.section-data {
+  padding: 0.5rem 0.5rem 0.5rem 2rem;
+  color: rgb(221, 221, 221);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.section-wind-data {
+  padding: 0.5rem 1rem 0.5rem 2rem;
+  display: grid;
+  grid-template-columns: 0fr 0fr;
+  color: rgb(221, 221, 221);
+}
+
+.wind-data {
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.windAnimationArrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.windIcon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-filter: invert(100%);
+}
+
+.windCircle {
+  height: 70px;
+  width: 70px;
+}
+
+.windArrow {
+  position: absolute;
+  height: 35px;
+  width: 35px;
+}
+
+.section-text {
+  color: rgb(221, 221, 221);
+  font-family: poppins;
+  margin: 0.1em;
+  font-size: 1.1em;
+  display: flex;
+}
+
+.section-real-data {
+  color: rgb(255, 204, 137);
+  margin-left: 0.5rem;
+}

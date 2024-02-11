@@ -21,10 +21,10 @@
       <span class="metric-number"> {{ data.Pressure }} </span>
     </div>
     <div class="infoBox">
-      <div class="metric-text">Precipation rate (mm)</div>
+      <div class="metric-text">Precipation today (mm)</div>
       <div class="icon-text-container">
         <img src="../../assets/images/precip.png" class="metric-icon" alt="" />
-        <span class="metric-number"> {{ data.PrecipationRate }} </span>
+        <span class="metric-number"> {{ data.PrecipationTotal }} </span>
       </div>
     </div>
     <div class="infoBox">

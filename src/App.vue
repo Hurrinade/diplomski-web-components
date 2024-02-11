@@ -7,6 +7,14 @@
 
 <style>
 .main {
+  padding: 2rem;
   display: flex;
+  gap: 5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background-color: black;
 }
 </style>
