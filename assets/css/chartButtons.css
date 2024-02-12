@@ -1,0 +1,22 @@
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25rem;
+  height: 55rem;
+}
+
+.mini-chart {
+  margin-bottom: 1em;
+  border: none;
+  border-bottom: 2px solid #252729;
+  background: none;
+  width: 25rem;
+  height: 45rem;
+}
+
+.mini-chart:hover {
+  background-color: #252729;
+  cursor: pointer;
+}

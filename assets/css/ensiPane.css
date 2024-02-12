@@ -1,0 +1,29 @@
+.ensi-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ensi-old {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ensi-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ensi-img {
+  width: 25rem;
+  height: 15rem;
+  margin: 0rem 1rem 0rem 1rem;
+}
+
+.ensi-img-big {
+  width: 48rem;
+  height: 30rem;
+  margin: 1rem;
+}

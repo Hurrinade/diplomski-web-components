@@ -13,9 +13,24 @@
           </div>
           <div class="place-date">{{ "Date of messure: " + date }}</div>
         </div>
+        <hr />
         <div class="buttons">
-          <button @click="changeTab('weather')">Weather</button>
-          <button @click="changeTab('details')">Details</button>
+          <button
+            :style="{
+              color: tab === 'weather' ? '#889ce7' : '',
+            }"
+            @click="changeTab('weather')"
+          >
+            Weather
+          </button>
+          <button
+            :style="{
+              color: tab === 'details' ? '#889ce7' : '',
+            }"
+            @click="changeTab('details')"
+          >
+            Details
+          </button>
         </div>
       </nav>
       <main v-if="data">
@@ -119,12 +134,12 @@ export default {
       icon.value = sunImage;
       var zagrebLong = 45.815;
       var zagrebLang = 15.9819;
-      var currentDate = new Date();
-      var currentHour = currentDate.getHours();
-      var currneMinutes = currentDate.getMinutes();
-      const sunset = getSunset(zagrebLong, zagrebLang);
-      var sunsetHour = sunset.getHours();
-      var sunsetMinutes = sunset.getMinutes();
+      var currentDate = dayjs();
+      var currentHour = currentDate.hour();
+      var currneMinutes = currentDate.minute();
+      const sunset = dayjs(getSunset(zagrebLong, zagrebLang));
+      var sunsetHour = sunset.hour();
+      var sunsetMinutes = sunset.minute();
 
       if (
         currentHour > sunsetHour ||

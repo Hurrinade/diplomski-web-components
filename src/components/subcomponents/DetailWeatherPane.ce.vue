@@ -62,13 +62,13 @@
             <div class="windIcon">
               <img
                 class="windCircle"
-                :src="'../../../assets/images/circle.png'"
+                src="../../../assets/images/circle.png"
                 alt=""
               />
               <img
                 id="windArrowMlinovi"
                 className="windArrow"
-                :src="'../../../assets/images/wind_arrow.png'"
+                src="../../../assets/images/wind_arrow.png"
                 alt=""
                 :style="{
                   transform: 'rotate(' + data.WindDirection + 'deg)',

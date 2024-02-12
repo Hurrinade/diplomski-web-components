@@ -1,0 +1,20 @@
+.radars-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.radarFrame {
+  padding: 0.7rem;
+  width: 25rem;
+  height: 18rem;
+}
+
+.nav-button:hover {
+  background-color: #24272b;
+}
+
+.nav-button:focus {
+  background-color: #202328;
+}
