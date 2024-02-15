@@ -11,7 +11,7 @@
             <div class="place-name">{{ location }}</div>
             <img class="weather-type-icon" :src="icon" alt="type of weather" />
           </div>
-          <div class="place-date">{{ "Date of messure: " + date }}</div>
+          <div class="place-date">{{ date }}</div>
         </div>
         <hr />
         <div class="buttons">

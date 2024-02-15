@@ -1,13 +1,14 @@
 <template>
   <div class="main container">
+    <chart-component :chartType.prop="'temperature'" />
     <div class="main-panes">
-      <data-pane :location.prop="'Vrapce'" />
+      <!-- <data-pane :location.prop="'Vrapce'" /> -->
       <chart-buttons @chart="openChart" />
-      <data-pane :location.prop="'Mlinovi'" />
-      <radars-pane />
+      <!-- <data-pane :location.prop="'Mlinovi'" />
+      <radars-pane /> -->
     </div>
-    <forecast-pane></forecast-pane>
-    <ensi-pane></ensi-pane>
+    <!-- <forecast-pane></forecast-pane>
+    <ensi-pane></ensi-pane> -->
   </div>
 </template>
 

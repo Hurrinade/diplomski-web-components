@@ -14,10 +14,10 @@
         src="https://vrijeme.hr/anim_kompozit.gif"
         alt=""
     /></a>
-    <a href="https://www.3bmeteo.com/"
+    <a href="https://maps.neverin.hr/sat/anim_eu.gif"
       ><img
         class="radarFrame"
-        src="https://pljusak.hr/cam_other/3Bir.gif?t=1707761440"
+        src="https://maps.neverin.hr/sat/anim_eu.gif"
         alt=""
     /></a>
   </div>

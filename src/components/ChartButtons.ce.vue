@@ -1,18 +1,47 @@
 <template>
   <div class="main-conatiner">
     <div class="chart-container">
-      <button class="mini-chart" @click="$emit('chart', 'temperature')">
-        <Line :data="tempChart.data" :options="tempChart.options" />
+      <button
+        v-if="tempChart.data"
+        class="mini-chart"
+        @click="$emit('chart', 'temperature')"
+      >
+        <Line
+          :data="tempChart.data ? tempChart.data : {}"
+          :options="tempChart.options"
+        />
       </button>
-      <button class="mini-chart" @click="$emit('chart', 'wind')">
+      <button
+        v-if="windChart.data"
+        class="mini-chart"
+        @click="$emit('chart', 'windspeed')"
+      >
         <Line :data="windChart.data" :options="windChart.options" />
       </button>
-      <button class="mini-chart" @click="$emit('chart', 'precipation')">
+      <button
+        v-if="precipChart.data"
+        class="mini-chart"
+        @click="$emit('chart', 'precipation')"
+      >
         <Line :data="precipChart.data" :options="precipChart.options" />
       </button>
-      <button class="mini-chart" @click="$emit('chart', 'humidity')">
+      <button
+        v-if="humidityChart.data"
+        class="mini-chart"
+        @click="$emit('chart', 'humidity')"
+      >
         <Line :data="humidityChart.data" :options="humidityChart.options" />
       </button>
+      <div
+        v-if="
+          !tempChart.data &&
+          !windChart.data &&
+          !precipChart.data &&
+          !humidityChart.data
+        "
+      >
+        No data
+      </div>
     </div>
   </div>
 </template>
@@ -28,9 +57,10 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
 import { Line } from "vue-chartjs";
 import { setupChart } from "../config/chartConfig.js";
+import { mapData } from "../helpers/chartMapping";
 
 ChartJS.register(
   CategoryScale,
@@ -49,50 +79,66 @@ export default {
   emits: ["chart"],
   setup() {
     // Display data for last 5 days, while big chart will for last 10 days
+    const charts = ["temperature", "windspeed", "precipation", "humidity"];
     const tempChart = ref({});
     const windChart = ref({});
     const precipChart = ref({});
     const humidityChart = ref({});
+    let eventSource;
 
-    tempChart.value = setupChart(
-      "Temperature chart",
-      {
-        vrapce: [40, 39, 10, 40, 39],
-        mlinovi: [47, 65, 21, 89, 34],
-      },
-      ["January", "February", "March", "April", "May"]
-    );
+    const startSse = async () => {
+      eventSource = new EventSource("http://localhost:8080/v1/chartData");
 
-    windChart.value = setupChart(
-      "Wind chart",
-      {
-        vrapce: [40, 39, 10, 40, 12],
-        mlinovi: [47, 65, 21, 89, 34],
-      },
-      ["January", "February", "March", "April", "May"]
-    );
+      eventSource.addEventListener("open", (data) => {
+        console.debug("Event source opened for chart buttons");
+      });
 
-    precipChart.value = setupChart(
-      "Daily precipation chart",
-      {
-        vrapce: [40, 39, 10, 40, 39],
-        mlinovi: [47, 65, 21, 20, 34],
-      },
-      ["January", "February", "March", "April", "May"]
-    );
+      eventSource.addEventListener("data", (event) => {
+        const eventData = JSON.parse(event.data);
+        if (eventData.error) {
+          console.warn(eventData.notice);
+          return;
+        }
 
-    humidityChart.value = setupChart(
-      "Humidity chart",
-      {
-        vrapce: [40, 39, 10, 40, 39],
-        mlinovi: [47, 65, 21, 89, 34],
-      },
-      ["January", "February", "March", "April", "May"]
-    );
+        const chartsData = [];
+        for (const chartType of charts) {
+          const chartData = mapData(chartType, eventData.data);
+          chartsData.push(
+            setupChart({
+              titleText: `${chartType.charAt(0).toUpperCase()}${chartType.slice(
+                1
+              )} chart`,
+              chartData: {
+                vrapce: chartData.vrapce,
+                mlinovi: chartData.mlinovi,
+              },
+              labels: chartData.dates,
+              pointRadius: 0,
+              displayAxis: false,
+            })
+          );
+        }
 
-    const fetchChartData = () => {
-      console.log("fetch chart data");
+        tempChart.value = chartsData[0];
+        windChart.value = chartsData[1];
+        precipChart.value = chartsData[2];
+        humidityChart.value = chartsData[3];
+      });
+
+      eventSource.addEventListener("error", (err) => {
+        eventSource.close();
+      });
     };
+
+    const closeSse = () => {
+      eventSource.close();
+    };
+
+    startSse();
+
+    onUnmounted(() => {
+      closeSse();
+    });
 
     return {
       tempChart,

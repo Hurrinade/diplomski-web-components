@@ -4,6 +4,7 @@ import ChartButtons from "./components/ChartButtons.ce.vue";
 import RadarsPane from "./components/RadarsPane.ce.vue";
 import ForecastPane from "./components/ForecastPane.ce.vue";
 import EnsiPane from "./components/EnsiPane.ce.vue";
+import ChartComponent from "./components/ChartComponent.ce.vue";
 import App from "./App.vue";
 
 const DataPaneWc = defineCustomElement(DataPane);
@@ -16,6 +17,8 @@ const ForecastPaneWc = defineCustomElement(ForecastPane);
 customElements.define("forecast-pane", ForecastPaneWc);
 const EnsiPaneWc = defineCustomElement(EnsiPane);
 customElements.define("ensi-pane", EnsiPaneWc);
+const ChartComponentWc = defineCustomElement(ChartComponent);
+customElements.define("chart-component", ChartComponentWc);
 
 const app = createApp(App);
 

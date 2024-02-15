@@ -1,20 +1,20 @@
 // Set data, labels from backend
-function setupChart(titleText, chartData, labels) {
+function setupChart(setup) {
   const data = {
-    labels: labels,
+    labels: setup.labels,
     datasets: [
       {
         label: "Vrapce",
         borderColor: "#889ce7",
-        data: chartData.vrapce,
-        pointRadius: 2,
+        data: setup.chartData.vrapce,
+        pointRadius: setup.pointRadius,
         pointBorderColor: "#889ce7",
       },
       {
         label: "Mlinovi",
         borderColor: "#fd6262",
-        data: chartData.mlinovi,
-        pointRadius: 2,
+        data: setup.chartData.mlinovi,
+        pointRadius: setup.pointRadius,
         pointBorderColor: "#fd6262",
       },
     ],
@@ -25,10 +25,16 @@ function setupChart(titleText, chartData, labels) {
     maintainAspectRatio: false,
     scales: {
       x: {
+        display: setup.displayAxis,
         grid: {
           color: "#2e3032",
         },
         ticks: {
+          callback: function (val, index) {
+            return index % 4 === 0 ? this.getLabelForValue(val) : "";
+          },
+          maxRotation: 0,
+          minRotation: 0,
           color: "#a0a0a0",
         },
       },
@@ -54,7 +60,7 @@ function setupChart(titleText, chartData, labels) {
       },
       title: {
         display: true,
-        text: titleText,
+        text: setup.titleText,
         color: "#a0a0a0",
         font: {
           size: 14,

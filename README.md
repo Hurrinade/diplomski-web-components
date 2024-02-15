@@ -1,29 +1,18 @@
-# diplomski-web-components
+# Notes web componente
 
-This template should help get you started developing with Vue 3 in Vite.
+- kreacija web komponenti sa reaktivnoscu
+- App.vue sluzi kao dio za testiranje gdje u main.js definiramo web komponente u ovom libu i testiramo
+- init.js je za build
+- vite je za build koji trazi external vue
+- css-ovi se buildaju sa komponentemom kao i ikone, ali je moguce ubacit i izvana (KREIRAT), objasniti probleme
+- podaci se preko SSE vuku sa backenda, dok se za chart fetchaju sa normalnih requestova
 
-## Recommended IDE Setup
+## Backend
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- opisat kak radi i kaj radi
 
-## Customize configuration
+## Vue
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+- objasniti instanciranje u projektu i koristenje, sa (vue propovima, emitovima, ...)
+- pokazati ubacivanje stilova
+-
