@@ -15,7 +15,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { ref } from "vue";
+import { ref, onUnmounted } from "vue";
 import { Line } from "vue-chartjs";
 import { setupChart } from "../config/chartConfig.js";
 import { mapData } from "../helpers/chartMapping";
@@ -76,7 +76,8 @@ export default {
             mlinovi: chartData.mlinovi,
           },
           labels: chartData.dates,
-          pointRadius: 4,
+          lineWidth: 2,
+          pointRadius: 1,
         });
       });
 
@@ -86,6 +87,10 @@ export default {
     };
 
     startSse();
+
+    onUnmounted(() => {
+      eventSource.close();
+    });
 
     return {
       chart,

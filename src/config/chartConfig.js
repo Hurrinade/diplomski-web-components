@@ -23,6 +23,11 @@ function setupChart(setup) {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
+    elements: {
+      line: {
+        borderWidth: setup.lineWidth,
+      },
+    },
     scales: {
       x: {
         display: setup.displayAxis,

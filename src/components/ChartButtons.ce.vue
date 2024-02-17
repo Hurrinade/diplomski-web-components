@@ -113,6 +113,7 @@ export default {
                 mlinovi: chartData.mlinovi,
               },
               labels: chartData.dates,
+              lineWidth: 1,
               pointRadius: 0,
               displayAxis: false,
             })
