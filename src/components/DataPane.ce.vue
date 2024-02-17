@@ -19,6 +19,7 @@
           </div>
           <div class="place-date">{{ date }}</div>
         </div>
+        <slot></slot>
         <hr />
         <div class="buttons">
           <button

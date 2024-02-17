@@ -1,4 +1,4 @@
-import { defineCustomElement } from "vue";
+import { defineCustomElement, reactive } from "vue";
 import DataPane from "./components/DataPane.ce.vue";
 import ChartButtons from "./components/ChartButtons.ce.vue";
 import RadarsPane from "./components/RadarsPane.ce.vue";
@@ -13,7 +13,12 @@ const ForecastPaneWebComponent = defineCustomElement(ForecastPane);
 const EnsiPaneWebComponent = defineCustomElement(EnsiPane);
 const ChartComponentWebComponent = defineCustomElement(ChartComponent);
 
+const toReactive = (obj) => {
+  return reactive(obj);
+};
+
 export {
+  toReactive,
   DataPaneWebComponent,
   ChartButtonsWebComponent,
   RadarsPaneWebComponent,
