@@ -1,4 +1,10 @@
 <template>
+  <link
+    v-for="(style, key) in styles"
+    :key="key"
+    rel="stylesheet"
+    :href="String(style)"
+  />
   <div class="main-conatiner">
     <template v-if="loading">
       <div class="backdrop"></div>

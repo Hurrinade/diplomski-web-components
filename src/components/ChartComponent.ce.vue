@@ -43,7 +43,6 @@ export default {
   },
   emits: ["chart"],
   setup(props) {
-    // Display data for last 5 days, while big chart will for last 10 days
     const chart = ref({});
     let eventSource;
 
