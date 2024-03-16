@@ -40,10 +40,10 @@ export default {
         currentTime.isSameOrAfter(startTime) &&
         currentTime.isSameOrBefore(endTime)
       ) {
-        const ensi00 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi06 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=6&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi12 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=12&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi18 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=18&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi00 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi06 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=6&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi12 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=12&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi18 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=18&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
         oldENSI.value = [ensi06, ensi12, ensi18];
         activeENSI.value = ensi00;
         return;
@@ -56,10 +56,10 @@ export default {
         currentTime.isSameOrAfter(startTime) &&
         currentTime.isSameOrBefore(endTime)
       ) {
-        const ensi00 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi06 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=6&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi12 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=12&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi18 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=18&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi00 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi06 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=6&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi12 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=12&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi18 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=18&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
         oldENSI.value = [ensi12, ensi18, ensi00];
         activeENSI.value = ensi06;
         return;
@@ -72,10 +72,10 @@ export default {
         currentTime.isSameOrAfter(startTime) &&
         currentTime.isSameOrBefore(endTime)
       ) {
-        const ensi00 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi06 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=6&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi12 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=12&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi18 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=18&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi00 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi06 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=6&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi12 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=12&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi18 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=18&date=${yesterdayFormated}&model=gfs&member=ENS&bw=1`;
         oldENSI.value = [ensi18, ensi00, ensi06];
         activeENSI.value = ensi12;
         return;
@@ -88,10 +88,10 @@ export default {
         currentTime.isSameOrAfter(startTime) &&
         currentTime.isSameOrBefore(endTime)
       ) {
-        const ensi00 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi06 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=6&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi12 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=12&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
-        const ensi18 = `https://wetterzentrale.de/en/ens_image.php?geoid=54032&var=201&run=18&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi00 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=0&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi06 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=6&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi12 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=12&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
+        const ensi18 = `https://www.wetterzentrale.de/en/ens_image.php?geoid=141656&var=201&run=18&date=${todayFormated}&model=gfs&member=ENS&bw=1`;
         oldENSI.value = [ensi00, ensi06, ensi12];
         activeENSI.value = ensi18;
         return;

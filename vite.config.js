@@ -1,10 +1,7 @@
 import { fileURLToPath, URL } from "node:url";
-import path from "node:path";
-
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue({
@@ -16,6 +13,9 @@ export default defineConfig({
       },
     }),
   ],
+  define: {
+    "process.env": {},
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
@@ -23,7 +23,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: ["vue"],
+      // external: ["vue"],
     },
     lib: {
       // Use for lib building
@@ -33,6 +33,6 @@ export default defineConfig({
       fileName: (format) => (format === "es" ? "index.js" : "index.cjs"),
     },
     sourcemap: true, // create source map, map compailed code to original
-    target: "esnext", // choose target build
+    target: "esnext", // choose target build (es2015, ...)
   },
 });

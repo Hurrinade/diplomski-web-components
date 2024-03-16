@@ -24,7 +24,7 @@
         <div class="buttons">
           <button
             :style="{
-              color: tab === 'weather' ? '#889ce7' : '',
+              color: tab === 'weather' ? 'var(--wc-color)' : '',
             }"
             @click="changeTab('weather')"
           >
@@ -32,7 +32,7 @@
           </button>
           <button
             :style="{
-              color: tab === 'details' ? '#889ce7' : '',
+              color: tab === 'details' ? 'var(--wc-color)' : '',
             }"
             @click="changeTab('details')"
           >
@@ -64,6 +64,7 @@ import rainNightImage from "../../assets/images/rain_night.png";
 import { getSunset } from "sunrise-sunset-js";
 
 export default {
+  name: "DataPane",
   components: {
     SimpleWeatherPane,
     DetailWeatherPane,
@@ -87,6 +88,7 @@ export default {
     const date = ref("");
     const icon = ref(sunImage);
     let eventSource;
+    let pingInterval;
 
     /* Functions */
     const startSse = (location) => {
@@ -96,11 +98,11 @@ export default {
 
       if (location === "Vrapce") {
         eventSource = new EventSource(
-          "http://localhost:8080/v1/getVrapceEvents"
+          "http://localhost:8080/v1/getEvents/vrapce"
         );
       } else if (location === "Mlinovi") {
         eventSource = new EventSource(
-          "http://localhost:8080/v1/getMlinoviEvents"
+          "http://localhost:8080/v1/getEvents/mlinovi"
         );
       }
 
@@ -168,10 +170,23 @@ export default {
 
     onUnmounted(() => {
       closeSse();
+      clearInterval(pingInterval);
     });
 
     onMounted(() => {
       startSse(props.location);
+    });
+
+    // Custom event to show component comunication
+    const pingMsg = "ping from data pane component " + props.location;
+    const event = new CustomEvent("ping", { detail: pingMsg });
+
+    pingInterval = setInterval(() => {
+      window.dispatchEvent(event);
+    }, 5000);
+
+    window.addEventListener("ping2", (event) => {
+      console.log(props.location, event.detail);
     });
 
     return {
@@ -187,8 +202,8 @@ export default {
 </script>
 
 <style>
-@import "../../assets/css/dataPane.css";
-@import "../../assets/css/detailPane.css";
-@import "../../assets/css/loading.css";
-@import "../../assets/css/simplePane.css";
+@import "/assets/css/dataPane.css";
+@import "/assets/css/detailPane.css";
+@import "/assets/css/loading.css";
+@import "/assets/css/simplePane.css";
 </style>

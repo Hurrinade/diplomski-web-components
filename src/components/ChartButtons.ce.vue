@@ -85,6 +85,7 @@ export default {
     const precipChart = ref({});
     const humidityChart = ref({});
     let eventSource;
+    let pingInterval;
 
     const startSse = async () => {
       eventSource = new EventSource("http://localhost:8080/v1/chartData");
@@ -139,6 +140,19 @@ export default {
 
     onUnmounted(() => {
       closeSse();
+      clearInterval(pingInterval);
+    });
+
+    // Custom event to show component comunication
+    const pingMsg = "ping from chart buttons component";
+    const event = new CustomEvent("ping2", { detail: pingMsg });
+
+    pingInterval = setInterval(() => {
+      window.dispatchEvent(event);
+    }, 3000);
+
+    window.addEventListener("ping", (event) => {
+      console.log(event.detail);
     });
 
     return {

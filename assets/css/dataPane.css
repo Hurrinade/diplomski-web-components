@@ -1,3 +1,9 @@
+:root {
+  --wc-background: #1b1c1e;
+  --wc-color: #889ce7;
+  --wc-time: #a7b5e9;
+}
+
 /* CSS of place name icon and it's date */
 .main-conatiner {
   display: flex;
@@ -9,7 +15,7 @@
   padding: 1rem;
   backdrop-filter: blur(2rem);
   /* background: #141416; */
-  background: #1b1c1e;
+  background: var(--wc-background);
 }
 
 .data-container {
@@ -59,7 +65,7 @@ main {
   justify-content: center;
   align-items: center;
   padding-bottom: 1rem;
-  color: #a7b5e9;
+  color: var(--wc-time);
 }
 
 .place-name {
@@ -71,7 +77,7 @@ main {
   align-items: center;
   width: 100px;
   height: 70px;
-  color: #889ce7;
+  color: var(--wc-color);
 }
 
 .place-weather {
