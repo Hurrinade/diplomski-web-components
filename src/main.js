@@ -7,6 +7,8 @@ import EnsiPane from "./components/EnsiPane.ce.vue";
 import ChartComponent from "./components/ChartComponent.ce.vue";
 import App from "./App.vue";
 
+import router from "./router/index";
+
 const DataPaneWc = defineCustomElement(DataPane);
 customElements.define("data-pane", DataPaneWc);
 const ChartButtonsWc = defineCustomElement(ChartButtons);
@@ -20,6 +22,4 @@ customElements.define("ensi-pane", EnsiPaneWc);
 const ChartComponentWc = defineCustomElement(ChartComponent);
 customElements.define("chart-component", ChartComponentWc);
 
-const app = createApp(App);
-
-app.mount("#app");
+const app = createApp(App).use(router).mount("#app");
