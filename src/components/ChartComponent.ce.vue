@@ -98,6 +98,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 @import "../../assets/css/chart.css";
+
+.someclass {
+  color: white;
+  background-color: black;
+  font-size: 12;
+  border: red solid 1px;
+}
 </style>
